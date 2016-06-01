@@ -1,0 +1,64 @@
+# Application API
+
+If you feel like opting in for the Laracogs starter kit. You can also easily build in an API layer. Running the <code>laracogs:api</code> command will set up the bare bones components, but you can also use the API tools as a part of the CRUD now by using the <code>--api</code> option.
+
+##### Requires
+```php
+composer require tymon/jwt-auth
+```
+
+## Setup
+```
+php artisan laracogs:api
+```
+
+Essentially you want to do all the basic setup for JWT such as everything in here:
+Then follow the directions regarding installation on: [https://github.com/tymondesigns/jwt-auth/wiki/Installation](https://github.com/tymondesigns/jwt-auth/wiki/Installation)
+
+This to the `app/Providers/RouteServiceProvider.php` in the `mapWebRoutes(Router $router)` function:
+```php
+require app_path('Http/api-routes.php');
+```
+
+Add to the app/Http/Kernal.php under routeMiddleware:
+```php
+'jwt.auth' => \Tymon\JWTAuth\Middleware\GetUserFromToken::class,
+'jwt.refresh' => \Tymon\JWTAuth\Middleware\RefreshToken::class,
+```
+
+Add to except attribute the app/Http/Middleware/VerifyCsrfToken.php (You also have to do this for CRUDs you add):
+```php
+'api/v1/login',
+'api/v1/user/profile',
+```
+
+If you use Apache add this to the .htaccess file:
+```php
+RewriteEngine On
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+```
+
+Also update your jwt config file and set the user to:
+
+```php
+\App\Repositories\User\User::class
+```
+
+## What API publishes
+The command will overwrite any existing files with the api version of them:
+
+* app/Http/Controllers/Api/AuthController.php
+* app/Http/Controllers/Api/UserController.php
+* app/Http/api-routes.php
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-39444410-8', 'auto');
+  ga('send', 'pageview');
+
+</script>
