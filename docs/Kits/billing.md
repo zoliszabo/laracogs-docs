@@ -20,8 +20,8 @@ require app_path('Http/billing-routes.php');
 Add this to the .env:
 ```php
 SUBSCRIPTION=basic
-STRIPE_SECRET=public-key
-STRIPE_PUBLIC=secret-key
+STRIPE_SECRET=secret-key
+STRIPE_PUBLIC=public-key
 ```
 
 Add this to the app/Providers/AuthServiceProvider.php:
