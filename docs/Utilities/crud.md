@@ -3,8 +3,12 @@
 One of the most powerful tools in the Laracogs arsenal is the CRUD builder. Following SOLID principals it can construct a basic set of components pending on a table name provided in the CLI. The CRUD can be used with singular table entities think: 'books' or 'authors' but, you can also build CRUDS for combined entities that is a parent, and child like structure: 'books_authors'. This will generate a 'books_authors' table and place all components of the authors (controller, repository, model etc) into a Books namespace, which means you can then generate 'books_publishers' and have all the components be added as siblings to the authors. Now let's say you went ahead with using the Laracogs starter kit, then you can autobuild your CRUDs with them boostrapped, which means they're already wrapped up as view extensions of the dashboard content which means you're even closer to being done your application.
 
 ```
-php artisan laracogs:crud {name or snake_names} {--api} {--migration} {--bootstrap} {--semantic} {--schema}
+php artisan laracogs:crud {name or snake_names} {--api} {--migration} {--bootstrap} {--semantic} {--schema} {--serviceOnly}
 ```
+
+## Service Only
+
+The service only will allow you to generate CRUDs that are service layer and lower this includes: Service, Repository, Model, and Tests with the options for migrations. It will skip the Controllers, Routes, Views, etc. This keeps your code lean, and is optimal for relationships that don't maintain a 'visual' presence in your site/app such as downloads of an entity.
 
 ### Bootstrap &amp; Semantic
 These are the two primarily supported CSS frameworks, you can opt in for either or disregard them completely. Both expect a dashboard parent view, this can be generated with either of the following commands:
