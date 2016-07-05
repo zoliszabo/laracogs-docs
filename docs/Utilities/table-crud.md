@@ -14,5 +14,4 @@ php artisan laracogs:table-crud {name or snake_names} {--api} {--migration} {--b
 
   ga('create', 'UA-39444410-8', 'auto');
   ga('send', 'pageview');
-
 </script>

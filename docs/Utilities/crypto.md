@@ -44,5 +44,4 @@ Crypto::shared()->decrypt('encrypted-text');
 
   ga('create', 'UA-39444410-8', 'auto');
   ga('send', 'pageview');
-
 </script>

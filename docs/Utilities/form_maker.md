@@ -210,5 +210,4 @@ This will build the form off the columns of the table. Though the fromObject wil
 
   ga('create', 'UA-39444410-8', 'auto');
   ga('send', 'pageview');
-
 </script>

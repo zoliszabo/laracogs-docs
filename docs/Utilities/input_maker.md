@@ -95,5 +95,4 @@ _** If no type is set the InputMaker will default to a standard text input_
 
   ga('create', 'UA-39444410-8', 'auto');
   ga('send', 'pageview');
-
 </script>
