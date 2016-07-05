@@ -224,6 +224,13 @@ Laracogs starter kit provides the basic unit tests for each of its own parts. Th
 
 ## After Setup
 
+### Dashboard access
+
+The application dashboard is found by browsing to the /dashboard endpoint.
+The default admin user login credentials are:
+    email: admin@admin.com
+    password: admin
+
 ### User
 
 The user model is expanded with Laracogs Starter Kit. It adds to the basic user model: roles, teams, and user meta. The relationships are as follows:
