@@ -75,11 +75,11 @@ Available column types:
 
 You can specifiy relationships, in order to automate a few more steps of building your CRUDs. You can set the relationship expressions like this:
 
-```relation|class|name```
+`relation|class|name`
 
 or something like:
 
-```hasOne|App\Author|author```
+`hasOne|App\Author|author`
 
 This will add in the relationships to your models, as well as add the needed name_id field to your tables. Just one more thing you don't have to worry about.
 
@@ -94,7 +94,7 @@ Files Generated
 * Repository
 * Request
 * Model
-* Facade
+* Facade (optional)
 * Views (Bootstrap or Semantic or CSS framework-less)
 * Tests
 * Migration (optional)
