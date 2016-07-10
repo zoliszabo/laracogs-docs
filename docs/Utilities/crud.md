@@ -1,6 +1,6 @@
 # CRUD
 
-One of the most powerful tools in the Laracogs arsenal is the CRUD builder. Following SOLID principals it can construct a basic set of components pending on a table name provided in the CLI. The CRUD can be used with singular table entities think: 'books' or 'authors' but, you can also build CRUDS for combined entities that is a parent, and child like structure: 'books_authors'. This will generate a 'books_authors' table and place all components of the authors (controller, repository, model etc) into a Books namespace, which means you can then generate 'books_publishers' and have all the components be added as siblings to the authors. Now let's say you went ahead with using the Laracogs starter kit, then you can autobuild your CRUDs with them boostrapped, which means they're already wrapped up as view extensions of the dashboard content which means you're even closer to being done your application.
+One of the most powerful tools in the Laracogs arsenal is the CRUD builder. Following SOLID principals it can construct a basic set of components pending on a table name provided in the CLI. The CRUD can be used with singular table entities think: 'books' or 'authors' but, you can also build CRUDs for combined entities that is a parent, and child like structure: 'books_authors'. This will generate a 'books_authors' table and place all components of the authors (controller, repository, model etc) into a Books namespace, which means you can then generate 'books_publishers' and have all the components be added as siblings to the authors. Now let's say you went ahead with using the Laracogs starter kit, then you can autobuild your CRUDs with them boostrapped, which means they're already wrapped up as view extensions of the dashboard content which means you're even closer to being done your application.
 
 ```
 php artisan laracogs:crud {name or snake_names} {--api} {--bootstrap} {--semantic} {--serviceOnly} {--migration} {--schema} {--relationships} {--withFacades}
@@ -104,7 +104,12 @@ Appends to the following Files:
 
 Single Word Example (Book):
 ------
-* app/Facades/BookServiceFacade.php
+```
+php artisan laracogs:crud Book --migration --schema="id:increments,title:string,author:string"
+```
+
+When using the default paths for the components, the following files will be generated:
+
 * app/Http/Controllers/BookController.php
 * app/Http/Requests/BookRequest.php
 * app/Repositories/Book/BookRepository.php
@@ -121,6 +126,12 @@ Single Word Example (Book):
 
 Snake Name Example (Book_Author):
 ------
+```
+php artisan laracogs:crud Book_Author --migration --schema="id:increments,firstname:string,lastname:string" --withFacades
+```
+
+When using the default paths for the components, the following files will be generated:
+
 * app/Facades/Books/AuthorServiceFacade.php
 * app/Http/Controllers/Books/AuthorController.php
 * app/Http/Requests/Books/AuthorRequest.php
@@ -138,7 +149,12 @@ Snake Name Example (Book_Author):
 
 Single Name Example (Book with API):
 ------
-* app/Facades/BookServiceFacade.php
+```
+php artisan laracogs:crud Book --api --migration --schema="id:increments,title:string,author:string"
+```
+
+When using the default paths for the components, the following files will be generated:
+
 * app/Http/Controllers/Api/BookController.php
 * app/Http/Controllers/BookController.php
 * app/Http/Requests/BookRequest.php
