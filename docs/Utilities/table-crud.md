@@ -3,7 +3,7 @@
 The table CRUD is a wrapper on the CRUD which will parse the table in the database and build the CRUD from that table.
 
 ```
-php artisan laracogs:table-crud {name or snake_names} {--api} {--migration} {--bootstrap} {--semantic}
+php artisan laracogs:table-crud {name or snake_names} {--api} {--ui=bootstrap|semantic} {--withFacade}
 ```
 
 <script>
