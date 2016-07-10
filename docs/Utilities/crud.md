@@ -20,7 +20,7 @@ artisan laracogs:semantic
 
 These reskin your views with either of the CSS frameworks.
 
-## Service Only
+### Service Only
 
 The service only will allow you to generate CRUDs that are service layer and lower this includes: Service, Repository, Model, and Tests with the options for migrations. It will skip the Controllers, Routes, Views, etc. This keeps your code lean, and is optimal for relationships that don't maintain a 'visual' presence in your site/app such as downloads of an entity.
 
@@ -35,12 +35,7 @@ You can define the table schema with the structure below. The field types should
 --schema="id:increments,name:string"
 ```
 
-## With Facades
-
-If you opt in for Facades the CRUD will generate them, with the intention that they will be used to access the service. You will need to bind them to the app in your own providers, but you will at least have the Facade file generated.
-
-Available column types:
------
+The following column types are available:
  * bigIncrements
  * increments
  * bigInteger
@@ -83,7 +78,11 @@ or something like:
 
 This will add in the relationships to your models, as well as add the needed name_id field to your tables. Just one more thing you don't have to worry about.
 
-### Example:
+### With Facades
+
+If you opt in for Facades the CRUD will generate them, with the intention that they will be used to access the service. You will need to bind them to the app in your own providers, but you will at least have the Facade file generated.
+
+## Examples
 The following components are generated:
 
 Files Generated
