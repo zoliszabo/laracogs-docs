@@ -38,6 +38,8 @@ Add the following to your `app/Http/Kernel.php` $routeMiddleware array.
 
 ```php
 'admin' => \App\Http\Middleware\Admin::class,
+'permission' => \App\Http\Middleware\Permission::class,
+'roles' => \App\Http\Middleware\Roles::class,
 ```
 
 Update the `App\User::class` in: 'config/auth.php' and 'database/factory/ModelFactory.php' to this:
