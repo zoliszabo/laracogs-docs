@@ -105,7 +105,7 @@ Appends to the following Files:
 Single Word Example (Book):
 ------
 ```
-php artisan laracogs:crud Book --migration --schema="id:increments,title:string,author:string"
+php artisan crudmaker:new Book --migration --schema="id:increments,title:string,author:string"
 ```
 
 When using the default paths for the components, the following files will be generated:
@@ -127,7 +127,7 @@ When using the default paths for the components, the following files will be gen
 Snake Name Example (Book_Author):
 ------
 ```
-php artisan laracogs:crud Book_Author --migration --schema="id:increments,firstname:string,lastname:string" --withFacade
+php artisan crudmaker:new Book_Author --migration --schema="id:increments,firstname:string,lastname:string" --withFacade
 ```
 
 When using the default paths for the components, the following files will be generated:
@@ -150,7 +150,7 @@ When using the default paths for the components, the following files will be gen
 Single Name Example (Book with API):
 ------
 ```
-php artisan laracogs:crud Book --api --migration --schema="id:increments,title:string,author:string"
+php artisan crudmaker:new Book --api --migration --schema="id:increments,title:string,author:string"
 ```
 
 When using the default paths for the components, the following files will be generated:
