@@ -41,7 +41,7 @@ input_maker_create($name, $field, $object = null, $class = 'form-control', $refo
 
 The $field paramter is an array which can be highly configured.
 
-### Example $feild Config
+### Example $field Config
 
 ```
 [
@@ -56,18 +56,50 @@ The $field paramter is an array which can be highly configured.
 ```
 
 For Relationships:
+
 ```
-[
-    'model' => 'Full class as string',
-    'label' => 'visible name for the options',
-    'value' => 'value for the options',
-]
+    model: Full class as string
+    label: visible name for the options
+    value: value for the options
+    method: custom method, defaults to `all()`
+    params: parameters that are sent to the custom method
+```
 
 Example without User:
-@input_maker_create('roles', ['type' => 'relationship', 'model' => 'App\Repositories\Role\Role', 'label' => 'label', 'value' => 'name'])
+```php
+@input_maker_create('roles', [
+    'type' => 'relationship',
+    'model' => 'App\Repositories\Role\Role',
+    'label' => 'label',
+    'value' => 'name'
+])
+```
 
 Example with User:
-@input_maker_create('roles', ['type' => 'relationship', 'model' => 'App\Repositories\Role\Role', 'label' => 'label', 'value' => 'name'], $user)
+```php
+@input_maker_create('roles', [
+    'type' => 'relationship',
+    'model' => 'App\Repositories\Role\Role',
+    'label' => 'label',
+    'value' => 'name'
+], $user)
+```
+
+Example with User and custom method for getting Roles: In this instance we call a custom method on the Role model, and we pass in the params.
+```php
+@input_maker_create('roles', [
+    'type' => 'relationship',
+    'model' => 'App\Repositories\Role\Role',
+    'label' => 'label',
+    'value' => 'name',
+    'method' => 'getRolesThatAreCool',
+    'params' => 'cool'
+], $user)
+
+public function getRolesThatAreCool($params)
+{
+    return $this->where('name', 'LIKE', "%$params%")->get();
+}
 ```
 
 Types supported in the Config:

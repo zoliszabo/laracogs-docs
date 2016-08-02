@@ -119,7 +119,7 @@ Once you get the starter kit running you can register and login to your app. You
 ##### Controllers
 Laracogs updated the basic controllers to handle things like creating an profile when a user is registered, as well as setting default return routes to `dashboard` etc. It also provides contollers for handling profile modifications and pages, team management etc. The admin controller handles the admin of users, modifying a user provided the user has the admin role.
 
-* *app/Http/Controllers/*
+* app/Http/Controllers/
     * User/PasswordController.php
     * User/SettingsController.php
     * Admin/UserController.php
@@ -131,7 +131,7 @@ Laracogs updated the basic controllers to handle things like creating an profile
 ##### Middleware
 Laracogs overwrites the default middleware due to changes in the redirects. It also provides the `Admin` middleware for route level protection relative to roles.
 
-* *app/Http/Middleware/*
+* app/Http/Middleware/
     * Admin.php
     * Authenticate.php
     * RedirectIfAuthenticated.php
@@ -139,7 +139,7 @@ Laracogs overwrites the default middleware due to changes in the redirects. It a
 ##### Requests
 There are requests provided for handling the creation of Teams and updating of all components. Here we integrate the rules required that are able to run the validations and return errors. (If you're using Laracogs FormMaker Facade then it will even handling accepting the errors and highlighting the appropriate fields.)
 
-* *app/Http/Requests/*
+* app/Http/Requests/
     * TeamRequest.php
     * UpdateUserMetaRequest.php
     * UpdatePasswordRequest.php
@@ -153,33 +153,37 @@ Given that there are numerous routes added to handle teams, profiles, password e
 ##### Repositories
 Repositories are build in order to handle the models and customized requests on the models. This structure encourages a SOLID approach to your code. Allowing your Models to remain clean without them getting consumed with extra methods. The repository acts as the performer of actions to the Model. We then integrate Services below which handle all the buisness logic etc which make the calls to the repositories, and finally the Controller which calls the service. Once these have been integrated please ensure you delete the `User.php` model file and ensure that you have followed the installation and config instructions.
 
-* *app/Repositories/*
-    * UserMeta/UserMeta.php
-    * UserMeta/UserMetaRepository.php
-    * Role/Role.php
-    * Role/RoleRepository.php
-    * Team/Team.php
-    * Team/TeamRepository.php
-    * User/User.php
-    * User/UserRepository.php
+* app/Repositories/
+    * UserMeta/
+        * UserMeta.php
+        * UserMetaRepository.php
+    * Role/
+        * Role.php
+        * RoleRepository.php
+    * Team/
+        * Team.php
+        * TeamRepository.php
+    * User/
+        * User.php
+        * UserRepository.php
 
 ##### Services
 Service structure allows us to keep the buisness logic outside of the repositories, models, and controllers. This approach is best suited for apps that may wish to integrate an API down the road or other things. It also allows for a highly testable structure to the application.
 
-* *app/Services/*
+* app/Services/
     * UserService.php
     * TeamService.php
 
 ##### Database
 Please ensure that all migrations and seeds are run post installation. These seeds set the default roles available in your application.
 
-* *database/migrations/*
+* database/migrations/
     * 2015_11_30_191713_create_user_meta_table.php
     * 2015_11_30_215038_create_roles_table.php
     * 2015_11_30_215040_create_role_user_table.php
     * 2015_12_04_155900_create_teams_table.php
     * 2015_12_04_155900_create_teams_users_table.php
-* *database/seeds/*
+* database/seeds/
     * DatabaseSeeder.php
     * RolesTableSeeder.php
     * UserTableSeeder.php
@@ -190,33 +194,41 @@ Factories for each of the repositories are appended to the `database/factories/M
 ##### Views
 The views consist of as little HTML as possible to perform the logical actions. These are intended to be the most basic, and all of which are intended to be modified.
 
-* *resources/views/*
-    * user/meta.blade.php
-    * user/password.blade.php
-    * user/settings.blade.php
-    * admin/users/edit.blade.php
-    * admin/users/index.blade.php
-    * admin/users/invite.blade.php
-    * auth/login.blade.php
-    * auth/password.blade.php
-    * auth/register.blade.php
-    * auth/reset.blade.php
+* resources/views/
+    * user/
+        * meta.blade.php
+        * password.blade.php
+        * settings.blade.php
+    * admin/
+        * users/
+            * edit.blade.php
+            * index.blade.php
+            * invite.blade.php
+    * auth/
+        * login.blade.php
+        * password.blade.php
+        * register.blade.php
+        * reset.blade.php
     * dashboard.blade.php
-    * emails/new-user.blade.php
-    * emails/password.blade.php
-    * errors/404.blade.php
-    * errors/503.blade.php
-    * partials/errors.blade.php
-    * partials/message.blade.php
-    * team/create.blade.php
-    * team/edit.blade.php
-    * team/index.blade.php
-    * team/show.blade.php
+    * emails/
+        * new-user.blade.php
+        * password.blade.php
+    * errors/
+        * 404.blade.php
+        * 503.blade.php
+    * partials/
+        * errors.blade.php
+        * message.blade.php
+    * team/
+        * create.blade.php
+        * edit.blade.php
+        * index.blade.php
+        * show.blade.php
 
 ##### Tests
 Laracogs starter kit provides the basic unit tests for each of its own parts. This provides some great exmaples of testing for building an application quickly.
 
-* *tests/*
+* tests/
     * UserMetaRepositoryTest.php
     * UserServiceTest.php
     * TeamIntegrationTest.php
@@ -262,14 +274,3 @@ The Admin middleware acts as a tool for setting admin level permissions on the r
 ```
 
 This simple addition to a route will ensure the user has access to the admin level, if not it will return them from where they came.
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-39444410-8', 'auto');
-  ga('send', 'pageview');
-
-</script>

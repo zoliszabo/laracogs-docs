@@ -126,44 +126,42 @@ This is the basic config for `config/plans.php`.
 
 ### Service Methods
 
-##### currentBillingCycle()
+<br>
+#### currentBillingCycle()
 By using this method at the beginning and chaining another method after it you enable the restriction of the query to be performed but restricting itself to the current billing cycle.
 
-##### canAccess($area)
+<br>
+#### canAccess($area)
 Retuns a boolean if the user can enter
 
-##### cannotAccess($area)
+<br>
+#### cannotAccess($area)
 Retuns a boolean if the user cannot enter
 
-##### getClause($key)
+<br>
+#### getClause($key)
 Returns the specified clause of the plans
 
-##### getLimit($model)
+<br>
+#### getLimit($model)
 Returns the specified limit of a model or pivot table
 
-##### withinLimit($model, $key = 'user_id', $value = {user's id})
+<br>
+#### withinLimit($model, $key = 'user_id', $value = {user's id})
 Confirms that the specified model only has the specified amount collected by the $key and $value.
 * If you add the `currentBillingCycle()` before this then it would add the further restrictions.
 
-##### creditsUsed($model, $key = 'user_id', $value = {user's id})
+<br>
+#### creditsUsed($model, $key = 'user_id', $value = {user's id})
 Reports back the specified amount collected by the $key and $value.
 * If you add the `currentBillingCycle()` before this then it would add the further restrictions.
 
-##### creditsAvailable($model)
+<br>
+#### creditsAvailable($model)
 Returns the number of credits remaining based on the config and the previous method.
 * If you add the `currentBillingCycle()` before this then it would add the further restrictions.
 
-##### clause($key, $method, $model = null)
+<br>
+#### clause($key, $method, $model = null)
 Performs a custom method with rules defined by the clause name in the config. The Closure method in this is provided with the following parameters: $user, $subscription, $clause, $query
 
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-39444410-8', 'auto');
-  ga('send', 'pageview');
-
-</script>

@@ -3,16 +3,35 @@
 One of the most powerful tools in the Laracogs arsenal is the CRUD builder. Following SOLID principals it can construct a basic set of components pending on a table name provided in the CLI. The CRUD can be used with singular table entities think: 'books' or 'authors' but, you can also build CRUDs for combined entities that is a parent, and child like structure: 'books_authors'. This will generate a 'books_authors' table and place all components of the authors (controller, repository, model etc) into a Books namespace, which means you can then generate 'books_publishers' and have all the components be added as siblings to the authors. Now let's say you went ahead with using the Laracogs starter kit, then you can autobuild your CRUDs with them bootstrapped, which means they're already wrapped up as view extensions of the dashboard content which means you're even closer to being done your application.
 
 ```
-php artisan crudmaker:new {name or snake_names} {--api} {--ui=bootstrap|semantic} {--serviceOnly} {--withFacade} {--migration} {--schema} {--relationships}
+php artisan crudmaker:new {name or snake_names}
+{--api}
+{--ui=bootstrap|semantic}
+{--serviceOnly}
+{--withFacade}
+{--migration}
+{--schema}
+{--relationships}
 ```
 
-### API
+## Config
+The config is published in `config` where you can specify namespaces, locations etc.
 
+## Templates
+All generated components are based on templates. There are basic templates included in this package, however in most cases you will have to conform them to your project's needs. If you have published the assets during the installation process, the template files will be available in `resources/crudmaker/crud`.
+
+Test templates are treated differently from the other templates. By default there are three test templates provided, two integration tests for the generated service and repository, and one acceptance test. However, the Tests folder has a 'one to one' mapping with the tests folder of your project. This means you can easily add tests for different test levels matching your project. For example, if you want to create a unit test for the generated controller, you can just create a new template file, for instance `resources/crudmaker/crud/Tests/Unit/ControllerTest.txt`. When running the CRUD generator, the following file will then be created: `tests/unit/NameOfResourceControllerTest.php`.
+
+## API
 The API option will add in a controller to handle API requests and responses. It will also add in the API routes assuming this is v1.
 
-### UI
-There are two primarily supported CSS frameworks (Bootstrap and Semantic), you can opt in for either or disregard them completely. Both expect a dashboard parent view, this can be generated with either of the following commands:
+```
+yourapp.com/api/v1/books
+```
 
+## UI
+There are two primarily supported CSS frameworks (Bootstrap and Semantic), you can opt in for either or disregard them completely. Without the UI option specified the CrudMaker will use the plain HTML view which isn't very nice looking.
+
+Both expect a dashboard parent view, this can be generated with either of the following commands:
 ```
 artisan laracogs:bootstrap
 artisan laracogs:semantic
@@ -20,13 +39,18 @@ artisan laracogs:semantic
 
 These reskin your views with either of the CSS frameworks.
 
-### Service Only
+## Service Only
 The service only will allow you to generate CRUDs that are service layer and lower this includes: Service, Repository, Model, and Tests with the options for migrations. It will skip the Controllers, Routes, Views, etc. This keeps your code lean, and is optimal for relationships that don't maintain a 'visual' presence in your site/app such as downloads of an entity.
 
-### Migration
-The migration option will add the migration file to your migrations directory, using the schema builder will fill in the create table method.
+## With Facades
+If you opt in for Facades the CRUD will generate them, with the intention that they will be used to access the service. You will need to bind them to the app in your own providers, but you will at least have the Facade file generated.
 
-### Schema (Requires migration option)
+## Migration
+The migration option will add the migration file to your migrations directory, using the schema builder will fill in the create table method. The Schema and Relationships require this since they expect to modify the migration file generated.
+
+## Schema
+*Requires migration option*
+
 You can define the table schema with the structure below. The field types should match what would be the Schema builder.
 
 ```
@@ -34,60 +58,73 @@ You can define the table schema with the structure below. The field types should
 ```
 
 The following column types are available:
- * bigIncrements
- * increments
- * bigInteger
- * binary
- * boolean
- * char
- * date
- * dateTime
- * decimal
- * double
- * enum
- * float
- * integer
- * ipAddress
- * json
- * jsonb
- * longText
- * macAddress
- * mediumInteger
- * mediumText
- * morphs
- * smallInteger
- * string
- * string
- * text
- * time
- * tinyInteger
- * timestamp
- * uuid
 
-### Relationships (Requires migration option)
+* bigIncrements
+* increments
+* bigInteger
+* binary
+* boolean
+* char
+* date
+* dateTime
+* decimal
+* double
+* enum
+* float
+* integer
+* ipAddress
+* json
+* jsonb
+* longText
+* macAddress
+* mediumInteger
+* mediumText
+* morphs
+* smallInteger
+* string
+* string
+* text
+* time
+* tinyInteger
+* timestamp
+* uuid
+
+#### Want further definitions?
+
+```
+--schema="id:increments|first,user_id:integer|unsigned,name:string|nullable|after('id'),age:integer|default(0)"
+```
+
+## Relationships
+*Requires migration option*
+
 You can specifiy relationships, in order to automate a few more steps of building your CRUDs. You can set the relationship expressions like this:
 
-`relation|class|name`
+```
+relation|class|name
+```
 
 or something like:
 
-`hasOne|App\Author|author`
+```
+hasOne|App\Author|author
+```
 
 This will add in the relationships to your models, as well as add the needed name_id field to your tables. Just one more thing you don't have to worry about.
+The general relationships handled by the HTML rendered are:
 
-### With Facades
-If you opt in for Facades the CRUD will generate them, with the intention that they will be used to access the service. You will need to bind them to the app in your own providers, but you will at least have the Facade file generated.
-
-## Templates
-All generated components are based on templates. There are basic templates included in this package, however in most cases you will have to conform them to your project's needs. If you have published the assets during the installation process, the template files will be available in `resources/crudmaker/crud`.
-
-Test templates are treated differently from the other templates. By default there are three test templates provided, two integration tests for the generated service and repository, and one acceptance test. However, the Tests folder has a 'one to one' mapping with the tests folder of your project. This means you can easily add tests for different test levels matching your project. For example, if you want to create a unit test for the generated controller, you can just create a new template file, for instance `resources/crudmaker/crud/Tests/Unit/ControllerTest.txt`. When running the CRUD generator, the following file will then be created: `tests/unit/NameOfResourceControllerTest.php`.
+```
+hasOne
+hasMany
+belongsTo
+belongsToMany
+```
 
 ## Examples
 The following components are generated:
 
-Files Generated
-------
+#### Files Generated
+
 * Controller
 * Api Controller (optional)
 * Service
@@ -102,10 +139,11 @@ Appends to the following Files:
 * app/Http/routes.php
 * database/factories/ModelFactory.php
 
-Single Word Example (Book):
-------
+#### Single Word Example (Book):
 ```
-php artisan crudmaker:new Book --migration --schema="id:increments,title:string,author:string"
+php artisan crudmaker:new Book
+--migration
+--schema="id:increments,title:string,author:string"
 ```
 
 When using the default paths for the components, the following files will be generated:
@@ -124,10 +162,12 @@ When using the default paths for the components, the following files will be gen
 * tests/BookRepositoryTest.php
 * tests/BookServiceTest.php
 
-Snake Name Example (Book_Author):
-------
+#### Snake Name Example (Book_Author):
 ```
-php artisan crudmaker:new Book_Author --migration --schema="id:increments,firstname:string,lastname:string" --withFacade
+php artisan crudmaker:new Book_Author
+--migration
+--schema="id:increments,firstname:string,lastname:string"
+--withFacade
 ```
 
 When using the default paths for the components, the following files will be generated:
@@ -147,10 +187,12 @@ When using the default paths for the components, the following files will be gen
 * tests/Books/AuthorRepositoryTest.php
 * tests/Books/AuthorServiceTest.php
 
-Single Name Example (Book with API):
-------
+#### Single Name Example (Book with API):
 ```
-php artisan crudmaker:new Book --api --migration --schema="id:increments,title:string,author:string"
+php artisan crudmaker:new Book
+--api
+--migration
+--schema="id:increments,title:string,author:string"
 ```
 
 When using the default paths for the components, the following files will be generated:

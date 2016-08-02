@@ -54,97 +54,23 @@ You now have Laracogs installed. Looking to try the *Starter Kit* look below.
     </div>
 </div>
 
-### Starter
-In order to make use of the <u>starter kit</u> you will need to modify some files. Check out the modifications below:
+## Kits!
 
-Add the following to your `app/Http/Kernel.php` $routeMiddleware array.
+* [The Starter Kit](Kits/starter.md)
+* [API with JWT](Kits/api.md)
+* [Billing with Cashier](Kits/billing.md)
+* [Bootstrap Skins](Kits/bootstrap.md)
+* [Semantic UI Skins](Kits/semantic.md)
+* [Notifications](Kits/notifications.md)
+* [Social Media Logins with Socialite](Kits/socialite.md)
+* [Docs Generator](Kits/docs.md)
 
-```php
-'admin' => \App\Http\Middleware\Admin::class,
-'permission' => \App\Http\Middleware\Permission::class,
-'roles' => \App\Http\Middleware\Roles::class,
-```
+## Services!
 
-Update the `App\User::class` in: 'config/auth.php' and 'database/factory/ModelFactory.php' to this:
+We have a handful of services available to help you get your app written faster! Check them out:
 
-```php
-App\Repositories\User\User::class
-```
-
-Add the following to 'app/Providers/AuthServiceProvider.php' in the boot method
-
-```php
-$gate->define('admin', function ($user) {
-    return ($user->roles->first()->name === 'admin');
-});
-
-$gate->define('team-member', function ($user, $team) {
-    return ($user->teams->find($team->id));
-});
-```
-
-You will want to create an sqlite memory test database in the `config/database.php`
-
-```php
-'testing' => [
-    'driver'   => 'sqlite',
-    'database' => ':memory:',
-    'prefix'   => '',
-],
-```
-
-Add the following line to the 'phpunit.xml' file
-```xml
-<env name="DB_CONNECTION" value="testing"/>
-<env name="MAIL_DRIVER" value="log"/>
-```
-
-##### For Laravel 5.2
-You will also need to set the location of the email for password reminders. (config/auth.php - at the bottom)
-
-```php
-'passwords' => [
-    'users' => [
-        'provider' => 'users',
-        'email' => 'emails.password',
-        'table' => 'password_resets',
-        'expire' => 60,
-    ],
-],
-```
-
-##### Things to note
-You may try and start quickly by testing the registration but please make sure your app's <u>email</u> is configured or it will throw an exception.
-You can do this in the `.env` file easily by setting it to 'log' temporarily
-
-```php
-MAIL_DRIVER=log
-```
-
-##### Last Steps
-
-Once you've added in all these parts you will want to run the starter command!
-
-```php
-php artisan laracogs:starter
-```
-
-Then you'll need to migrate to add in the users, user meta, roles and teams tables. The seeding is run to set the initial roles for your application.
-
-```php
-php artisan migrate --seed
-```
-
-## Also Provides
-The Laracogs package also provides the LaravelCollective HTML, and Forms components.
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-39444410-8', 'auto');
-  ga('send', 'pageview');
-
-</script>
+* [CrudMaker](Services/crud.md)
+* [CrudMaker: For exitsing table](Services/table-crud.md)
+* [FormMaker](Services/form_maker.md)
+* [InputMaker](Services/input_maker.md)
+* [Crypto](Services/crypto.md)

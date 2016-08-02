@@ -1,4 +1,4 @@
-# FAQs and General Help
+# FAQs & General Help
 
 Just a few tips and tricks for getting started with Laracogs.
 
@@ -8,22 +8,17 @@ Just a few tips and tricks for getting started with Laracogs.
 In case you're encountering issues where PHP is just spitting out nested caps etc. You can
 either set the nesting level in your `bootstrap/autoload.php` or your `php.ini` file.
 
-``` ini_set('xdebug.max_nesting_level', 500); ```
+```
+ini_set('xdebug.max_nesting_level', 500);
+```
 
-### CrudMaker
+----
 
-The CrudMaker is a package which is auto added by Laracogs and is available [here](https://github.com/YabHq/CrudMaker).
-For further documentation please consult GitHub.
+### Extra Packages Provided
 
-### Crypto
-
-The Crypto is a package which is auto added by Laracogs and is available [here](https://github.com/YabHq/Crypto).
-For further documentation please consult GitHub.
-
-### FormMaker
-
-The FormMaker is a package which is auto added by Laracogs and is available [here](https://github.com/YabHq/FormMaker).
-For further documentation please consult GitHub.
+* [CrudMaker](https://laracogs.com/docs/Services/crud)
+* [FormMaker](https://laracogs.com/docs/Services/form_maker)
+* [Crypto](https://laracogs.com/docs/Services/Crypto)
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
