@@ -82,7 +82,6 @@ The following column types are available:
 * morphs
 * smallInteger
 * string
-* string
 * text
 * time
 * tinyInteger
