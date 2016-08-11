@@ -5,7 +5,7 @@ Laracogs is a package which can be added to any Laravel 5.1+ app. It's best to i
 
 ----
 
-### Installation
+## Installation
 
 Start a new Laravel project:
 
@@ -53,6 +53,35 @@ You now have Laracogs installed. Looking to try the *Starter Kit* look below.
         </div>
     </div>
 </div>
+
+----
+
+## Design Philosophy
+
+All code in one way or another follows some sort of philosophy or structure. Laracogs, and in turn the CrudMaker follow a pattern which enables strict rules for where which code belongs where as well as easy ways of scaling.
+Lets start by looking at Micro-services.
+
+Micro-services are single use/ purpose usually RESTful endpoints. Their goal is to do one thing and one thing only. Lets say we have a master database, but we want to have a contacts component in our app. We can make a contacts micro-service which has endpoints for managing them, then all logic pertaining to contacts will reside in the contacts microservice. How does this pertain to Laracogs and the CrudMaker?
+
+#### Simple.
+
+Laracogs can add basic boilerplate components to your app so you can start developing quickly. You may add on a contacts CRUD for example. The code pattern that we use makes it simple to for you as a dev to remove the Contacts component and make it a micro-service, or leave it inside your app.
+
+#### Really?! How does that work?
+
+Well, first off we follow a pattern of View <- Controller -> Service -> Repository -> Model. Now in this pattern, Controller can be replaced with Console, or Controller/ Console and View can be completely removed. This means that a Controllers sole purpose is to call a Service, and pass the result to a View. The Service in turn contains all the logic and integration of third party services or other internal services, a service is only permitted to speak to one Repository, but can speak to infinite services. Repositories are permitted to speak to only one Model. This makes it that a model is reduced to predominantly defining itself, and any relationships it has. This structure allows us to keep all layers of an application as lean as possible. It also enables us to remove a group (Controller/ Service/ Repository/ Model) and make it a microservice while only having to modify one Service file in the original app.
+
+By default the CrudMaker will assume you have no base Service or Repository. But, you could easily modify your templates to support a base class for each of these which would reduce the duplication in your code.
+
+#### Scaleable and Simple
+
+The purpose of all of this is to enable developers to handle scaling while maintaining simple code bases in any app they develop. Sometimes the only way to do that is with strict rules.
+
+#### We're not perfect
+
+If you think we're nuts please provide a reason, but we're always happy to discuss design pattern ideas and implementations.
+
+----
 
 ## Kits!
 
