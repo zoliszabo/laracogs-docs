@@ -1,6 +1,6 @@
 # Application Starter Kit
 
-Laracogs provides an elegant solution for starting an application by building the most basic views, controllers, repositories, models and migrations for your application. No need to use the `php artisan make:auth` because now you can easily start your whole application with this single command:
+Laracogs provides an elegant solution for starting an application by building the most basic views, controllers, models and migrations for your application. No need to use the `php artisan make:auth` because now you can easily start your whole application with this single command:
 
 ```
 php artisan laracogs:starter
@@ -45,19 +45,27 @@ Add the following to your `app/Http/Kernel.php` $routeMiddleware array.
 Update the `App\User::class` in: 'config/auth.php' and 'database/factory/ModelFactory.php' to this:
 
 ```php
-App\Repositories\User\User::class
+App\Models\User::class
 ```
 
 Add the following to 'app/Providers/AuthServiceProvider.php' in the boot method
 
 ```php
-$gate->define('admin', function ($user) {
+Gate::define('admin', function ($user) {
     return ($user->roles->first()->name === 'admin');
 });
 
-$gate->define('team-member', function ($user, $team) {
+Gate::define('team-member', function ($user, $team) {
     return ($user->teams->find($team->id));
 });
+```
+
+Add the following to 'app/Providers/EventServiceProvider.php' in the $listen property
+
+```php
+'App\Events\UserRegisteredEmail' => [
+    'App\Listeners\UserRegisteredEmailListener',
+],
 ```
 
 You will want to create an sqlite memory test database in the `config/database.php`
@@ -140,39 +148,32 @@ Laracogs overwrites the default middleware due to changes in the redirects. It a
 There are requests provided for handling the creation of Teams and updating of all components. Here we integrate the rules required that are able to run the validations and return errors. (If you're using Laracogs FormMaker Facade then it will even handling accepting the errors and highlighting the appropriate fields.)
 
 * app/Http/Requests/
-    * TeamRequest.php
-    * UpdateUserMetaRequest.php
-    * UpdatePasswordRequest.php
-    * UpdateTeamRequest.php
+    * UserMetaUpdateRequest.php
+    * TeamUpdateRequest.php
+    * TeamCreateRequest.php
+    * PasswordUpdateRequest.php
 
 ##### Routes
 Given that there are numerous routes added to handle teams, profiles, password etc all routes are overwritten with the starter kit.
 
-* app/Http/routes.php
+* routes/web.php
 
-##### Repositories
-Repositories are build in order to handle the models and customized requests on the models. This structure encourages a SOLID approach to your code. Allowing your Models to remain clean without them getting consumed with extra methods. The repository acts as the performer of actions to the Model. We then integrate Services below which handle all the buisness logic etc which make the calls to the repositories, and finally the Controller which calls the service. Once these have been integrated please ensure you delete the `User.php` model file and ensure that you have followed the installation and config instructions.
+##### Models
+Models are obvious, but when we then integrate Services below which handle all the buisness logic etc which make the calls to the models we implement SOLID practices, the Controller, Console or other Service, which calls the service only accesses the model through it. Once these have been integrated please ensure you delete the `User.php` model file and ensure that you have followed the installation and config instructions.
 
-* app/Repositories/
-    * UserMeta/
+* app/Models/
         * UserMeta.php
-        * UserMetaRepository.php
-    * Role/
-        * Role.php
-        * RoleRepository.php
-    * Team/
-        * Team.php
-        * TeamRepository.php
-    * User/
         * User.php
-        * UserRepository.php
+        * Team.php
+        * Role.php
 
 ##### Services
-Service structure allows us to keep the buisness logic outside of the repositories, models, and controllers. This approach is best suited for apps that may wish to integrate an API down the road or other things. It also allows for a highly testable structure to the application.
+Service structure allows us to keep the buisness logic outside of the models, and controllers. This approach is best suited for apps that may wish to integrate an API down the road or other things. It also allows for a highly testable structure to the application.
 
 * app/Services/
     * UserService.php
     * TeamService.php
+    * RoleService.php
 
 ##### Database
 Please ensure that all migrations and seeds are run post installation. These seeds set the default roles available in your application.
@@ -189,7 +190,7 @@ Please ensure that all migrations and seeds are run post installation. These see
     * UserTableSeeder.php
 
 ##### Factories
-Factories for each of the repositories are appended to the `database/factories/ModelFactory.php` file.
+Factories for each of the models are appended to the `database/factories/ModelFactory.php` file.
 
 ##### Views
 The views consist of as little HTML as possible to perform the logical actions. These are intended to be the most basic, and all of which are intended to be modified.
@@ -229,12 +230,10 @@ The views consist of as little HTML as possible to perform the logical actions. 
 Laracogs starter kit provides the basic unit tests for each of its own parts. This provides some great exmaples of testing for building an application quickly.
 
 * tests/
-    * UserMetaRepositoryTest.php
     * UserServiceTest.php
     * TeamIntegrationTest.php
-    * TeamRepositoryTest.php
     * TeamServiceTest.php
-    * UserRepositoryTest.php
+    * RoleServiceTest.php
 
 ## After Setup
 

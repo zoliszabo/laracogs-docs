@@ -19,10 +19,16 @@ Add this to the `config/app.php` in the providers array:
 Yab\Laracogs\LaracogsProvider::class
 ```
 
-Time to publish those assets!
+Time to publish those assets! Laracogs uses CrudMaker and FormMaker which have publishable assets.
 ```php
-php artisan vendor:publish --provider="Yab\Laracogs\LaracogsProvider"
+php artisan vendor:publish
 ```
+or
+```php
+php artisan vendor:publish --provider="Yab\CrudMaker\CrudMakerProvider"
+php artisan vendor:publish --provider="Yab\FormMaker\FormMakerProvider"
+```
+
 
 You now have Laracogs installed. Looking to try the *Starter Kit* look below.
 
@@ -69,9 +75,9 @@ Laracogs can add basic boilerplate components to your app so you can start devel
 
 #### Really?! How does that work?
 
-Well, first off we follow a pattern of View <- Controller -> Service -> Repository -> Model. Now in this pattern, Controller can be replaced with Console, or Controller/ Console and View can be completely removed. This means that a Controllers sole purpose is to call a Service, and pass the result to a View. The Service in turn contains all the logic and integration of third party services or other internal services, a service is only permitted to speak to one Repository, but can speak to infinite services. Repositories are permitted to speak to only one Model. This makes it that a model is reduced to predominantly defining itself, and any relationships it has. This structure allows us to keep all layers of an application as lean as possible. It also enables us to remove a group (Controller/ Service/ Repository/ Model) and make it a microservice while only having to modify one Service file in the original app.
+Well, first off we follow a pattern of View <- Controller -> Service -> Model. Now in this pattern, Controller can be replaced with Console, or Controller/ Console and View can be completely removed. This means that a Controller's sole purpose is to call a Service, and pass the result to a View. The Service in turn contains all the logic and integration of third party services or other internal services, a service can talk to anything, models services etc. This makes it that a model is reduced to predominantly defining itself, and any relationships it has. This structure allows us to keep all layers of an application as lean as possible. It also enables us to remove a group (Controller/ Service/ Model) and make it a microservice while only having to modify one Service file in the original app.
 
-By default the CrudMaker will assume you have no base Service or Repository. But, you could easily modify your templates to support a base class for each of these which would reduce the duplication in your code.
+By default the CrudMaker will assume you have no base Service. But, you could easily modify your templates to support a base class for each of these which would reduce the duplication in your code.
 
 #### Scaleable and Simple
 

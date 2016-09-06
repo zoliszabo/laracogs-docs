@@ -14,7 +14,7 @@ php artisan laracogs:billing
 
 Add this to the `app/Providers/RouteServiceProvider.php` in the `mapWebRoutes(Router $router)` function:
 ```php
-require app_path('Http/billing-routes.php');
+require base_path('routes/billing-routes.php');
 ```
 
 Add this to the .env:
@@ -34,7 +34,7 @@ $gate->define('access-billing', function ($user) {
 And for the `config/services.php` you will want yours to resemble:
 ```php
 'stripe' => [
-    'model'  => App\Repositories\UserMeta\UserMeta::class,
+    'model'  => App\Models\UserMeta::class,
     'key'    => env('STRIPE_PUBLIC'),
     'secret' => env('STRIPE_SECRET'),
 ],
@@ -78,7 +78,7 @@ The command will overwrite any existing files with the billing version of them:
 
 * app/Http/Controllers/User/BillingController.php
 * app/Http/billing-routes.php
-* app/Repositories/UserMeta/UserMeta.php
+* app/Models/UserMeta.php
 * config/invoice.php
 * config/plans.php
 * database/migrations/2016_02_26_000647_create_subscriptions_table.php

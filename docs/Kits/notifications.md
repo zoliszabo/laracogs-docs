@@ -18,7 +18,7 @@ You may want to add this line to your navigation:
 Add this to the `app/Providers/RouteServiceProvider.php` in the `mapWebRoutes(Router $router)` function:
 
 ```php
-require app_path('Http/notification-routes.php');
+require base_path('routes/notification-routes.php');
 ```
 
 ## Facades
@@ -39,8 +39,7 @@ The command will overwrite any existing files with the notification version of t
 * app/Http/Controllers/User/NotificationController.php
 * app/Http/notification-routes.php
 * app/Http/Requests/NotificationRequest.php
-* app/Repositories/Notification/Notification.php
-* app/Repositories/Notification/NotificationRepository.php
+* app/Models/Notification.php
 * app/Services/NotificationService.php
 * database/migrations/2016_04_14_180036_create_notifications_table.php
 * resources/views/admin/notifications/create.blade.php
@@ -49,5 +48,4 @@ The command will overwrite any existing files with the notification version of t
 * resources/views/notifications/index.blade.php
 * resources/views/notifications/show.blade.php
 * tests/NotificationIntegrationTest.php
-* tests/NotificationRepositoryTest.php
 * tests/NotificationServiceTest.php
