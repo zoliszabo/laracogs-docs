@@ -6,6 +6,37 @@ If you feel like opting in for the Laracogs starter kit. You also have a great o
 php artisan laracogs:semantic
 ```
 
+After installation is complete you will need to install semantic-ui:
+
+```
+'npm install semantic-ui'
+```
+
+When prompted, select `automatic detection`.
+When prompted, select your `project location`, default should be fine.
+When prompted, set the directory to: `semantic`
+
+Then run:
+
+```
+'cd semantic && gulp build'
+```
+
+Then run:
+
+```
+'cd ../ && gulp'
+```
+
+Make sure you set the `PagesController@dashboard` to use the following view:
+
+```
+'dashboard.main'
+```
+
+Finished setting up semantic-ui in your app
+
+
 The command will overwrite any existing files with the semantic version of them:
 
 ## What Semantic Publishes
