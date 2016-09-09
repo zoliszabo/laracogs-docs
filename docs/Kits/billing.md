@@ -26,7 +26,7 @@ STRIPE_PUBLIC=public-key
 
 Add this to the app/Providers/AuthServiceProvider.php:
 ```php
-$gate->define('access-billing', function ($user) {
+Gate::define('access-billing', function ($user) {
     return ($user->meta->subscribed('main') && is_null($user->meta->subscription('main')->endDate));
 });
 ```

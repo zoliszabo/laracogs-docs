@@ -84,7 +84,7 @@ Add the following line to the 'phpunit.xml' file
 <env name="MAIL_DRIVER" value="log"/>
 ```
 
-##### For Laravel 5.2
+#### For Laravel 5.2
 You will also need to set the location of the email for password reminders. (config/auth.php - at the bottom)
 
 ```php
@@ -98,7 +98,7 @@ You will also need to set the location of the email for password reminders. (con
 ],
 ```
 
-##### Things to note
+#### Things to note
 You may try and start quickly by testing the registration but please make sure your app's <u>email</u> is configured or it will throw an exception.
 You can do this in the `.env` file easily by setting it to 'log' temporarily
 
@@ -106,7 +106,7 @@ You can do this in the `.env` file easily by setting it to 'log' temporarily
 MAIL_DRIVER=log
 ```
 
-##### Last Steps
+#### Last Steps
 
 Once you've added in all these parts you will want to run the starter command!
 
@@ -124,7 +124,7 @@ Once you get the starter kit running you can register and login to your app. You
 
 ## What Starter Publishes
 
-##### Controllers
+#### Controllers
 Laracogs updated the basic controllers to handle things like creating an profile when a user is registered, as well as setting default return routes to `dashboard` etc. It also provides contollers for handling profile modifications and pages, team management etc. The admin controller handles the admin of users, modifying a user provided the user has the admin role.
 
 * app/Http/Controllers/
@@ -136,7 +136,7 @@ Laracogs updated the basic controllers to handle things like creating an profile
     * PagesController.php
     * TeamController.php
 
-##### Middleware
+#### Middleware
 Laracogs overwrites the default middleware due to changes in the redirects. It also provides the `Admin` middleware for route level protection relative to roles.
 
 * app/Http/Middleware/
@@ -144,7 +144,7 @@ Laracogs overwrites the default middleware due to changes in the redirects. It a
     * Authenticate.php
     * RedirectIfAuthenticated.php
 
-##### Requests
+#### Requests
 There are requests provided for handling the creation of Teams and updating of all components. Here we integrate the rules required that are able to run the validations and return errors. (If you're using Laracogs FormMaker Facade then it will even handling accepting the errors and highlighting the appropriate fields.)
 
 * app/Http/Requests/
@@ -153,21 +153,21 @@ There are requests provided for handling the creation of Teams and updating of a
     * TeamCreateRequest.php
     * PasswordUpdateRequest.php
 
-##### Routes
+#### Routes
 Given that there are numerous routes added to handle teams, profiles, password etc all routes are overwritten with the starter kit.
 
 * routes/web.php
 
-##### Models
+#### Models
 Models are obvious, but when we then integrate Services below which handle all the buisness logic etc which make the calls to the models we implement SOLID practices, the Controller, Console or other Service, which calls the service only accesses the model through it. Once these have been integrated please ensure you delete the `User.php` model file and ensure that you have followed the installation and config instructions.
 
 * app/Models/
-        * UserMeta.php
-        * User.php
-        * Team.php
-        * Role.php
+    * UserMeta.php
+    * User.php
+    * Team.php
+    * Role.php
 
-##### Services
+#### Services
 Service structure allows us to keep the buisness logic outside of the models, and controllers. This approach is best suited for apps that may wish to integrate an API down the road or other things. It also allows for a highly testable structure to the application.
 
 * app/Services/
@@ -175,7 +175,7 @@ Service structure allows us to keep the buisness logic outside of the models, an
     * TeamService.php
     * RoleService.php
 
-##### Database
+#### Database
 Please ensure that all migrations and seeds are run post installation. These seeds set the default roles available in your application.
 
 * database/migrations/
@@ -189,10 +189,10 @@ Please ensure that all migrations and seeds are run post installation. These see
     * RolesTableSeeder.php
     * UserTableSeeder.php
 
-##### Factories
+#### Factories
 Factories for each of the models are appended to the `database/factories/ModelFactory.php` file.
 
-##### Views
+#### Views
 The views consist of as little HTML as possible to perform the logical actions. These are intended to be the most basic, and all of which are intended to be modified.
 
 * resources/views/
@@ -226,7 +226,7 @@ The views consist of as little HTML as possible to perform the logical actions. 
         * index.blade.php
         * show.blade.php
 
-##### Tests
+#### Tests
 Laracogs starter kit provides the basic unit tests for each of its own parts. This provides some great exmaples of testing for building an application quickly.
 
 * tests/
@@ -265,7 +265,7 @@ isTeamAdmin(team_id) // checks if user is admin level member
 
 ### Middleware
 
-##### Admin
+#### Admin
 The Admin middleware acts as a tool for setting admin level permissions on the routes or controller level.
 
 ```
