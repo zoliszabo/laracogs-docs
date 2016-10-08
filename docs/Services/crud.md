@@ -1,6 +1,6 @@
 # CRUD
 
-One of the most powerful tools in the Laracogs arsenal is the CRUD builder. Following SOLID principals it can construct a basic set of components pending on a table name provided in the CLI. The CRUD can be used with singular table entities think: 'books' or 'authors' but, you can also build CRUDs for combined entities that is a parent, and child like structure: 'books_authors'. This will generate a 'books_authors' table and place all components of the authors (controller, repository, model etc) into a Books namespace, which means you can then generate 'books_publishers' and have all the components be added as siblings to the authors. Now let's say you went ahead with using the Laracogs starter kit, then you can autobuild your CRUDs with them bootstrapped, which means they're already wrapped up as view extensions of the dashboard content which means you're even closer to being done your application.
+One of the most powerful tools in the Laracogs arsenal is the CRUD builder. Following SOLID principals it can construct a basic set of components pending on a table name provided in the CLI. The CRUD can be used with singular table entities think: 'books' or 'authors' but, you can also build CRUDs for combined entities that is a parent, and child like structure: 'books_authors'. This will generate a 'books_authors' table and place all components of the authors (controller, model etc) into a Books namespace, which means you can then generate 'books_publishers' and have all the components be added as siblings to the authors. Now let's say you went ahead with using the Laracogs starter kit, then you can autobuild your CRUDs with them bootstrapped, which means they're already wrapped up as view extensions of the dashboard content which means you're even closer to being done your application.
 
 ```
 php artisan crudmaker:new {name or snake_names}
@@ -19,7 +19,7 @@ The config is published in `config` where you can specify namespaces, locations 
 ## Templates
 All generated components are based on templates. There are basic templates included in this package, however in most cases you will have to conform them to your project's needs. If you have published the assets during the installation process, the template files will be available in `resources/crudmaker/crud`.
 
-Test templates are treated differently from the other templates. By default there are three test templates provided, two integration tests for the generated service and repository, and one acceptance test. However, the Tests folder has a 'one to one' mapping with the tests folder of your project. This means you can easily add tests for different test levels matching your project. For example, if you want to create a unit test for the generated controller, you can just create a new template file, for instance `resources/crudmaker/crud/Tests/Unit/ControllerTest.txt`. When running the CRUD generator, the following file will then be created: `tests/unit/NameOfResourceControllerTest.php`.
+Test templates are treated differently from the other templates. By default there are two test templates provided, one integration test for the generated service, and one acceptance test. However, the Tests folder has a 'one to one' mapping with the tests folder of your project. This means you can easily add tests for different test levels matching your project. For example, if you want to create a unit test for the generated controller, you can just create a new template file, for instance `resources/crudmaker/crud/Tests/Unit/ControllerTest.txt`. When running the CRUD generator, the following file will then be created: `tests/unit/NameOfResourceControllerTest.php`.
 
 ## API
 The API option will add in a controller to handle API requests and responses. It will also add in the API routes assuming this is v1.
@@ -149,8 +149,7 @@ When using the default paths for the components, the following files will be gen
 
 * app/Http/Controllers/BookController.php
 * app/Http/Requests/BookRequest.php
-* app/Repositories/Book/BookRepository.php
-* app/Repositories/Book/Book.php
+* app/Models/Book/Book.php
 * app/Services/BookService.php
 * resources/views/book/create.blade.php
 * resources/views/book/edit.blade.php
@@ -158,7 +157,6 @@ When using the default paths for the components, the following files will be gen
 * resources/views/book/show.blade.php
 * database/migrations/create_books_table.php
 * tests/BookIntegrationTest.php
-* tests/BookRepositoryTest.php
 * tests/BookServiceTest.php
 
 #### Snake Name Example (Book_Author):
@@ -174,8 +172,7 @@ When using the default paths for the components, the following files will be gen
 * app/Facades/Books/AuthorServiceFacade.php
 * app/Http/Controllers/Books/AuthorController.php
 * app/Http/Requests/Books/AuthorRequest.php
-* app/Repositories/Books/Author/AuthorRepository.php
-* app/Repositories/Books/Author/Author.php
+* app/Models/Books/Author/Author.php
 * app/Services/Books/AuthorService.php
 * resources/views/book/author/create.blade.php
 * resources/views/book/author/edit.blade.php
@@ -183,7 +180,6 @@ When using the default paths for the components, the following files will be gen
 * resources/views/book/author/show.blade.php
 * database/migrations/create_book_authors_table.php
 * tests/Books/AuthorIntegrationTest.php
-* tests/Books/AuthorRepositoryTest.php
 * tests/Books/AuthorServiceTest.php
 
 #### Single Name Example (Book with API):
@@ -199,8 +195,7 @@ When using the default paths for the components, the following files will be gen
 * app/Http/Controllers/Api/BookController.php
 * app/Http/Controllers/BookController.php
 * app/Http/Requests/BookRequest.php
-* app/Repositories/Book/BookRepository.php
-* app/Repositories/Book/Book.php
+* app/Models/Book/Book.php
 * app/Services/BookService.php
 * resources/views/book/create.blade.php
 * resources/views/book/edit.blade.php
@@ -208,7 +203,6 @@ When using the default paths for the components, the following files will be gen
 * resources/views/book/show.blade.php
 * database/migrations/create_books_table.php
 * tests/BookIntegrationTest.php
-* tests/BookRepositoryTest.php
 * tests/BookServiceTest.php
 
 This is an example of what would be generated with the CRUD builder. It has all basic CRUD methods set.
