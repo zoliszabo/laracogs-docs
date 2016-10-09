@@ -84,7 +84,7 @@ Add the following line to the 'phpunit.xml' file
 <env name="MAIL_DRIVER" value="log"/>
 ```
 
-#### For Laravel 5.2
+#### For Laravel 5.2 and later
 You will also need to set the location of the email for password reminders. (config/auth.php - at the bottom)
 
 ```php
@@ -112,6 +112,12 @@ Once you've added in all these parts you will want to run the starter command!
 
 ```php
 php artisan laracogs:starter
+```
+
+Then you'll have to refresh the list of all classes that need to be included in the project.
+
+```php
+composer dump-autoload
 ```
 
 Then you'll need to migrate to add in the users, user meta, roles and teams tables. The seeding is run to set the initial roles for your application.
