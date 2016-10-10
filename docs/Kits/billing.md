@@ -14,7 +14,7 @@ php artisan laracogs:billing
 
 Add this to the `app/Providers/RouteServiceProvider.php` in the `mapWebRoutes(Router $router)` function:
 ```php
-require base_path('routes/billing-routes.php');
+require base_path('routes/billing.php');
 ```
 
 Add this to the .env:
@@ -77,7 +77,6 @@ We do this because rather than bind the billing to the User, we bound it to the 
 The command will overwrite any existing files with the billing version of them:
 
 * app/Http/Controllers/User/BillingController.php
-* app/Http/billing-routes.php
 * app/Models/UserMeta.php
 * config/invoice.php
 * config/plans.php
@@ -92,6 +91,7 @@ The command will overwrite any existing files with the billing version of them:
 * resources/views/billing/coupons.blade.php
 * resources/views/billing/subscribe.blade.php
 * resources/views/billing/tabs.blade.php
+* routes/billing.php
 
 ## Accounts
 

@@ -26,7 +26,7 @@ Add this to your app config under aliases:
 
 Add this to the `app/Providers/RouteServiceProvider.php` in the `mapWebRoutes(Router $router)` function:
 ```php
-require base_path('routes/socialite-routes.php');
+require base_path('routes/socialite.php');
 ```
 
 Finally set the access details in the services config:
@@ -43,4 +43,4 @@ Finally set the access details in the services config:
 The command will overwrite any existing files with the socialite version of them:
 
 * app/Http/Controllers/Auth/SocialiteAuthController.php
-* routes/socialite-routes.php
+* routes/socialite.php

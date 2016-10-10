@@ -17,7 +17,7 @@ Then follow the directions regarding installation on: [https://github.com/tymond
 
 This to the `app/Providers/RouteServiceProvider.php` in the `mapWebRoutes(Router $router)` function:
 ```php
-require app_path('Http/api-routes.php');
+require base_path('routes/api.php');
 ```
 
 Add to the app/Http/Kernal.php under routeMiddleware:
@@ -42,7 +42,7 @@ RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
 Also update your jwt config file and set the user to:
 
 ```php
-\App\Repositories\User\User::class
+\App\Models\User::class
 ```
 
 ## What API publishes
@@ -50,4 +50,4 @@ The command will overwrite any existing files with the api version of them:
 
 * app/Http/Controllers/Api/AuthController.php
 * app/Http/Controllers/Api/UserController.php
-* app/Http/api-routes.php
+* routes/api.php
