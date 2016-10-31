@@ -1,7 +1,15 @@
-# Welcome to Laracogs
+# Laracogs Documentation
+
+<div class="logo">
+    <span class="icon"></span>
+</div>
 
 Welcome to Laracogs a provider of cogs to build your next amazing application including: a starter kit, form-maker, CRUD builder, documentation builder, and cryptography tool.
 Laracogs is a package which can be added to any Laravel 5.1+ app. It's best to integrate it early and utilize the starter kit to hit the ground running.
+
+<img class="thumbnail img-33" alt="" src="/img/screens/starter/1.jpg" />
+<img class="thumbnail img-33" alt="" src="/img/screens/billing/1.jpg" />
+<img class="thumbnail img-33" alt="" src="/img/screens/notification/1.jpg" />
 
 ----
 
@@ -31,34 +39,6 @@ php artisan vendor:publish --provider="Yab\FormMaker\FormMakerProvider"
 
 
 You now have Laracogs installed. Looking to try the *Starter Kit* look below.
-
-<div class="thumbnail">
-    <a href="/docs/img/screen1.jpg"><img alt="" src="/docs/img/screen1.jpg" /></a>
-</div>
-<div class="row">
-    <div class="col-md-6">
-        <div class="thumbnail">
-            <a href="/docs/img/screen2.jpg"><img alt="" src="/docs/img/screen2.jpg" /></a>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="thumbnail">
-            <a href="/docs/img/screen3.jpg"><img alt="" src="/docs/img/screen3.jpg" /></a>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-6">
-        <div class="thumbnail">
-            <a href="/docs/img/screen4.jpg"><img alt="" src="/docs/img/screen4.jpg" /></a>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <div class="thumbnail">
-            <a href="/docs/img/screen5.jpg"><img alt="" src="/docs/img/screen5.jpg" /></a>
-        </div>
-    </div>
-</div>
 
 ----
 
@@ -91,21 +71,23 @@ If you think we're nuts please provide a reason, but we're always happy to discu
 
 ## Kits!
 
-* [The Starter Kit](Kits/starter.md)
-* [API with JWT](Kits/api.md)
-* [Billing with Cashier](Kits/billing.md)
-* [Bootstrap Skins](Kits/bootstrap.md)
-* [Semantic UI Skins](Kits/semantic.md)
-* [Notifications](Kits/notifications.md)
-* [Social Media Logins with Socialite](Kits/socialite.md)
-* [Docs Generator](Kits/docs.md)
+* [The Starter Kit](kits/starter.md)
+* [API with JWT](kits/api.md)
+* [Billing with Cashier](kits/billing.md)
+* [Bootstrap Skins](kits/bootstrap.md)
+* [Semantic UI Skins](kits/semantic.md)
+* [Notifications](kits/notifications.md)
+* [Social Media Logins with Socialite](kits/socialite.md)
+* [Docs Generator](kits/docs.md)
 
 ## Services!
 
 We have a handful of services available to help you get your app written faster! Check them out:
 
-* [CrudMaker](Services/crud.md)
-* [CrudMaker: For exitsing table](Services/table-crud.md)
-* [FormMaker](Services/form_maker.md)
-* [InputMaker](Services/input_maker.md)
-* [Crypto](Services/crypto.md)
+* [CrudMaker](services/crud.md)
+* [CrudMaker: For exitsing table](services/table-crud.md)
+* [FormMaker](services/form_maker.md)
+* [InputMaker](services/input_maker.md)
+* [Crypto](services/crypto.md)
+* [Cerebrum](services/cerebrum.md)
+* [Laratest](services/laratest.md)

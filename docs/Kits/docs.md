@@ -19,14 +19,3 @@ The microsite will be generated in the following directory: `documentation/build
 php artisan laracogs:docs sami
 ```
 Laracogs will create a `SAMI` config and provide the commands required to run the build of the API docs. You will then find the new API documentation site: `documentation/build/api`
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-39444410-8', 'auto');
-  ga('send', 'pageview');
-
-</script>

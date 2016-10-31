@@ -207,12 +207,3 @@ When using the default paths for the components, the following files will be gen
 
 This is an example of what would be generated with the CRUD builder. It has all basic CRUD methods set.
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-39444410-8', 'auto');
-  ga('send', 'pageview');
-</script>

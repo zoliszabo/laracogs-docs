@@ -1,2 +1,43 @@
-site_name: Laracogs
-theme: flatly
+site_name: 'Laracogs: Prepare your Laravel apps incredibly fast.'
+
+# Repository
+repo_name: 'GitHub'
+repo_url: 'https://github.com/YabHq/Laracogs'
+
+# Copyright
+copyright: 'Copyright (c) 2016 Yab Inc'
+
+# Documentation and theme
+docs_dir: 'docs'
+theme: material
+
+# Options
+extra:
+  logo: 'img/laracogs.png'
+  palette:
+    primary: 'grey'
+    accent: 'cyan'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  i18n:
+    prev: 'Previous'
+    next: 'Next'
+  author:
+    github: 'YABhq'
+    twitter: 'YABdev'
+
+# Google Analytics
+google_analytics:
+  - 'UA-39444410-8'
+  - 'auto'
+
+extra_css: [ 'css/extra.css', 'css/ekko-lightbox.css' ]
+extra_javascript: [ 'js/jquery.js', 'js/ekko-lightbox.js' ]
+
+# Extensions
+markdown_extensions:
+  - codehilite(css_class=code)
+  - admonition
+  - toc:
+      permalink: '#'
