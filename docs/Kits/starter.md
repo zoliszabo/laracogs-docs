@@ -40,6 +40,7 @@ Add the following to your `app/Http/Kernel.php` $routeMiddleware array.
 'admin' => \App\Http\Middleware\Admin::class,
 'permission' => \App\Http\Middleware\Permission::class,
 'roles' => \App\Http\Middleware\Roles::class,
+'active' => \App\Http\Middleware\Active::class,
 ```
 
 Update the `App\User::class` in: 'config/auth.php' and 'database/factory/ModelFactory.php' to this:
@@ -83,6 +84,12 @@ Add the following line to the 'phpunit.xml' file
 <env name="DB_CONNECTION" value="testing"/>
 <env name="MAIL_DRIVER" value="log"/>
 ```
+
+##### Regarding Email Activation
+
+The Starter kit has an email activation component added to the app to ensure your users have validated their email address.
+You can disable it by removing the `active` middleware from the `web` routes. You will also have to disable the Notification but it
+won't cause any problems if you remove the email activation.
 
 #### For Laravel 5.2 and later
 You will also need to set the location of the email for password reminders. (config/auth.php - at the bottom)
