@@ -138,7 +138,7 @@ Once you get the starter kit running you can register and login to your app. You
 ## What Starter Publishes
 
 #### Controllers
-Laracogs updated the basic controllers to handle things like creating an profile when a user is registered, as well as setting default return routes to `dashboard` etc. It also provides contollers for handling profile modifications and pages, team management etc. The admin controller handles the admin of users, modifying a user provided the user has the admin role.
+Laracogs updated the basic controllers to handle things like creating a profile when a user is registered, as well as setting default return routes to `dashboard` etc. It also provides contollers for handling profile modifications and pages, team management etc. The admin controller handles the admin of users, modifying a user provided the user has the admin role.
 
 * app/Http/Controllers/
     * User/PasswordController.php
