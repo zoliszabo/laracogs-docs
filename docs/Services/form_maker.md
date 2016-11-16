@@ -2,6 +2,14 @@
 
 The form maker helps developers build entire forms with as little as one line of code. You can generate forms with things such as: an array, a table, or an object. The methods are highly customizable and allow you to control each of the components of your data, and write as little HTML as possible, or as much as you want.
 
+If you wish to use an alternate connection to access a table and generate a form, you can use the `setConnection` method.
+
+## Set Connection
+
+```
+FormMaker::setConnection('alternate')->fromTable('books');
+```
+
 ## Blade Directives
 
 ```
