@@ -15,7 +15,7 @@ php artisan laracogs:api
 Essentially you want to do all the basic setup for JWT such as everything in here:
 Then follow the directions regarding installation on: [https://github.com/tymondesigns/jwt-auth/wiki/Installation](https://github.com/tymondesigns/jwt-auth/wiki/Installation)
 
-This to the `app/Providers/RouteServiceProvider.php` in the `mapWebRoutes(Router $router)` function:
+Add this to the `app/Providers/RouteServiceProvider.php` file in the `mapWebRoutes(Router $router)` function:
 ```php
 require base_path('routes/api.php');
 ```
