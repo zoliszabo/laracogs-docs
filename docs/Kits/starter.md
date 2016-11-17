@@ -69,6 +69,11 @@ Add the following to 'app/Providers/EventServiceProvider.php' in the $listen pro
 ],
 ```
 
+Add this to the `App/Http/Kernel.php` in the `$routeMiddleware` array:
+```php
+'active' => \App\Http\Middleware\Active::class,
+```
+
 You will want to create an sqlite memory test database in the `config/database.php`
 
 ```php
