@@ -138,7 +138,7 @@ Once you get the starter kit running you can register and login to your app. You
 ## What Starter Publishes
 
 #### Controllers
-Laracogs updated the basic controllers to handle things like creating an profile when a user is registered, as well as setting default return routes to `dashboard` etc. It also provides contollers for handling profile modifications and pages, team management etc. The admin controller handles the admin of users, modifying a user provided the user has the admin role.
+Laracogs updated the basic controllers to handle things like creating a profile when a user is registered, as well as setting default return routes to `dashboard` etc. It also provides contollers for handling profile modifications and pages, team management etc. The admin controller handles the admin of users, modifying a user provided the user has the admin role.
 
 * app/Http/Controllers/
     * User/PasswordController.php
@@ -240,7 +240,7 @@ The views consist of as little HTML as possible to perform the logical actions. 
         * show.blade.php
 
 #### Tests
-Laracogs starter kit provides the basic unit tests for each of its own parts. This provides some great exmaples of testing for building an application quickly.
+Laracogs starter kit provides the basic unit tests for each of its own parts. This provides some great examples of testing for building an application quickly.
 
 * tests/
     * UserServiceTest.php
