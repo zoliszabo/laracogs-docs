@@ -69,6 +69,11 @@ Add the following to 'app/Providers/EventServiceProvider.php' in the $listen pro
 ],
 ```
 
+Add this to the `App/Http/Kernel.php` in the `$routeMiddleware` array:
+```php
+'active' => \App\Http\Middleware\Active::class,
+```
+
 You will want to create an sqlite memory test database in the `config/database.php`
 
 ```php
@@ -286,3 +291,12 @@ The Admin middleware acts as a tool for setting admin level permissions on the r
 ```
 
 This simple addition to a route will ensure the user has access to the admin level, if not it will return them from where they came.
+
+#### Active
+The Active middleware acts checks if the account as been activated by accessing the activate url with the emailed token.
+
+```
+['middleware' => 'active']
+```
+
+This simple addition to a route will ensure the user has an activated account, if not it will redirect them to the /active page so they can request another activation token if necessary.
