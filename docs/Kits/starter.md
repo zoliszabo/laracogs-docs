@@ -240,7 +240,7 @@ The views consist of as little HTML as possible to perform the logical actions. 
         * show.blade.php
 
 #### Tests
-Laracogs starter kit provides the basic unit tests for each of its own parts. This provides some great exmaples of testing for building an application quickly.
+Laracogs starter kit provides the basic unit tests for each of its own parts. This provides some great examples of testing for building an application quickly.
 
 * tests/
     * UserServiceTest.php
