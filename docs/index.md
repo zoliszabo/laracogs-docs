@@ -7,9 +7,9 @@
 Welcome to Laracogs a provider of cogs to build your next amazing application including: a starter kit, form-maker, CRUD builder, documentation builder, and cryptography tool.
 Laracogs is a package which can be added to any Laravel 5.1+ app. It's best to integrate it early and utilize the starter kit to hit the ground running.
 
-<img class="thumbnail img-33" alt="" src="/img/screens/starter/1.jpg" />
-<img class="thumbnail img-33" alt="" src="/img/screens/billing/1.jpg" />
-<img class="thumbnail img-33" alt="" src="/img/screens/notification/1.jpg" />
+<img class="thumbnail img-33" alt="" src="./img/screens/starter/1.jpg" />
+<img class="thumbnail img-33" alt="" src="./img/screens/billing/1.jpg" />
+<img class="thumbnail img-33" alt="" src="./img/screens/notification/1.jpg" />
 
 ----
 
