@@ -204,7 +204,7 @@ The getTableColumns method utilizes Doctrines Dbal component to map your databas
 Example:
 
 ```
-FormMaker::fromObject(Books::find(1), FormMaker::getFromColumns('books'))
+FormMaker::fromObject(Books::find(1), FormMaker::getTableColumns('books'))
 ```
 
 This will build the form off the columns of the table. Though the fromObject will scan through the object, but providing the table columns as the columns input allows the inputs to be set to thier correct type.
