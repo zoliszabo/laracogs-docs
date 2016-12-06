@@ -6,7 +6,7 @@ Laracogs provides an elegant solution for starting an application by building th
 php artisan laracogs:starter
 ```
 
-The command will overwrite any existing files with the starter kits version of them:
+The command will overwrite any existing files with the starter kit's version of them:
 
 ## Setup
 
@@ -34,12 +34,17 @@ You now have Laracogs installed. Looking to try the *Starter Kit* look below.
 ### Starter
 In order to make use of the <u>starter kit</u> you will need to modify some files. Check out the modifications below:
 
-Add the following to your `app/Http/Kernel.php` $routeMiddleware array.
+Add the following to your `app/Http/Kernel.php` in the `$routeMiddleware` array.
 
 ```php
 'admin' => \App\Http\Middleware\Admin::class,
-'permission' => \App\Http\Middleware\Permission::class,
+'permissions' => \App\Http\Middleware\Permissions::class,
 'roles' => \App\Http\Middleware\Roles::class,
+'active' => \App\Http\Middleware\Active::class,
+```
+
+If you don't want to worry about email activation then remove this:
+```php
 'active' => \App\Http\Middleware\Active::class,
 ```
 
@@ -69,11 +74,6 @@ Add the following to 'app/Providers/EventServiceProvider.php' in the $listen pro
 ],
 ```
 
-Add this to the `App/Http/Kernel.php` in the `$routeMiddleware` array:
-```php
-'active' => \App\Http\Middleware\Active::class,
-```
-
 You will want to create an sqlite memory test database in the `config/database.php`
 
 ```php
@@ -90,13 +90,13 @@ Add the following line to the 'phpunit.xml' file
 <env name="MAIL_DRIVER" value="log"/>
 ```
 
-##### Regarding Email Activation
+### Regarding Email Activation
 
 The Starter kit has an email activation component added to the app to ensure your users have validated their email address.
 You can disable it by removing the `active` middleware from the `web` routes. You will also have to disable the Notification but it
 won't cause any problems if you remove the email activation.
 
-#### For Laravel 5.2 and later
+### For Laravel 5.2 and later
 You will also need to set the location of the email for password reminders. (config/auth.php - at the bottom)
 
 ```php
@@ -259,16 +259,17 @@ Laracogs starter kit provides the basic unit tests for each of its own parts. Th
 
 The application dashboard is found by browsing to the /dashboard endpoint.
 The default admin user login credentials are:
-    email: admin@admin.com
-    password: admin
+
+* email: admin@admin.com
+* password: admin
 
 ### User
 
 The user model is expanded with Laracogs Starter Kit. It adds to the basic user model: roles, teams, and user meta. The relationships are as follows:
 
-Meta: hasOne
-Roles: belongsToMany
-Team: belongsToMany
+* Meta: hasOne
+* Roles: belongsToMany
+* Team: belongsToMany
 
 It also provides the following methods:
 
@@ -300,3 +301,19 @@ The Active middleware acts checks if the account as been activated by accessing 
 ```
 
 This simple addition to a route will ensure the user has an activated account, if not it will redirect them to the /active page so they can request another activation token if necessary.
+
+#### Roles
+The Roles middleware allows you to set custom roles for your routes.
+
+```
+['middleware' => 'roles:admin|member']
+```
+
+#### Permissions
+The Permissions middleware allows you to set custom permissions (a subset of roles) for your routes
+
+```
+['middleware' => 'permissions:admin|somethingDescriptive']
+```
+
+You can set permissions in the `config/permissions.php`
