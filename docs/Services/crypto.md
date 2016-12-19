@@ -26,11 +26,11 @@ Crypto::uuid();
 crypto_uuid();
 ```
 
-## shared()
+## shareable()
 
-The shared as mentioned uses a common encryption key so that the encrypted values can be shared.
+The shareable as mentioned uses a common encryption key so that the encrypted values can be shared.
 
 ```
-Crypto::shared()->encrypt('testing');
-Crypto::shared()->decrypt('encrypted-text');
+Crypto::shareable()->encrypt('testing');
+Crypto::shareable()->decrypt('encrypted-text');
 ```
