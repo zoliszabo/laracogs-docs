@@ -40,7 +40,7 @@ artisan laracogs:semantic
 These reskin your views with either of the CSS frameworks.
 
 ## Service Only
-The service only will allow you to generate CRUDs that are service layer and lower this includes: Service, Repository, Model, and Tests with the options for migrations. It will skip the Controllers, Routes, Views, etc. This keeps your code lean, and is optimal for relationships that don't maintain a 'visual' presence in your site/app such as downloads of an entity.
+The service only will allow you to generate CRUDs that are service layer and lower this includes: Service, Model, and Tests with the options for migrations. It will skip the Controllers, Routes, Views, etc. This keeps your code lean, and is optimal for relationships that don't maintain a 'visual' presence in your site/app such as downloads of an entity.
 
 ## With Facades
 If you opt in for Facades the CRUD will generate them, with the intention that they will be used to access the service. You will need to bind them to the app in your own providers, but you will at least have the Facade file generated.
@@ -127,8 +127,8 @@ The following components are generated:
 * Controller
 * Api Controller (optional)
 * Service
-* Repository
-* Request
+* CreateRequest
+* UpdateRequest
 * Model
 * Facade (optional)
 * Views (Bootstrap or Semantic or CSS framework-less)
@@ -148,7 +148,8 @@ php artisan crudmaker:new Book
 When using the default paths for the components, the following files will be generated:
 
 * app/Http/Controllers/BookController.php
-* app/Http/Requests/BookRequest.php
+* app/Http/Requests/BookCreateRequest.php
+* app/Http/Requests/BookUpdateRequest.php
 * app/Models/Book/Book.php
 * app/Services/BookService.php
 * resources/views/book/create.blade.php
@@ -171,7 +172,8 @@ When using the default paths for the components, the following files will be gen
 
 * app/Facades/Books/AuthorServiceFacade.php
 * app/Http/Controllers/Books/AuthorController.php
-* app/Http/Requests/Books/AuthorRequest.php
+* app/Http/Requests/Books/AuthorCreateRequest.php
+* app/Http/Requests/Books/AuthorUpdateRequest.php
 * app/Models/Books/Author/Author.php
 * app/Services/Books/AuthorService.php
 * resources/views/book/author/create.blade.php
@@ -194,7 +196,8 @@ When using the default paths for the components, the following files will be gen
 
 * app/Http/Controllers/Api/BookController.php
 * app/Http/Controllers/BookController.php
-* app/Http/Requests/BookRequest.php
+* app/Http/Requests/BookCreateRequest.php
+* app/Http/Requests/BookUpdateRequest.php
 * app/Models/Book/Book.php
 * app/Services/BookService.php
 * resources/views/book/create.blade.php
@@ -206,4 +209,3 @@ When using the default paths for the components, the following files will be gen
 * tests/BookServiceTest.php
 
 This is an example of what would be generated with the CRUD builder. It has all basic CRUD methods set.
-

@@ -4,7 +4,7 @@ The form maker helps developers build entire forms with as little as one line of
 
 If you wish to use an alternate connection to access a table and generate a form, you can use the `setConnection` method.
 
-## Set Connection
+## Set Alternate Connections
 
 ```
 FormMaker::setConnection('alternate')->fromTable('books');

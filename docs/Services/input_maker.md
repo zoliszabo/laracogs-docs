@@ -49,6 +49,7 @@ The $field paramter is an array which can be highly configured.
     'placeholder' => 'User Name Goes Here!',
     'alt_name' => 'User Name',
     'custom' => 'custom DOM attributes etc',
+    'default_value' => 'Clark Kent',
     'class' => 'css class names',
     'before' => '<span class="input-group-addon" id="basic-addon1">@</span>',
     'after' => '<span class="input-group-addon" id="basic-addon2">@example.com</span>',

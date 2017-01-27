@@ -43,9 +43,9 @@ Add the following to your `app/Http/Kernel.php` in the `$routeMiddleware` array.
 'active' => \App\Http\Middleware\Active::class,
 ```
 
-If you don't want to worry about email activation then remove this:
+If you don't want to worry about email activation then remove this from the route's middleware array:
 ```php
-'active' => \App\Http\Middleware\Active::class,
+'active'
 ```
 
 Update the `App\User::class` in: 'config/auth.php' and 'database/factory/ModelFactory.php' to this:
