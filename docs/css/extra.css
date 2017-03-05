@@ -10,10 +10,6 @@
         margin: 0 12px;
     }
 
-.header, body {
-    background-color: rgb(40, 70, 90) !important;
-}
-
 h1, h2, .drawer .section {
     color: rgb(42, 110, 142) !important;
 }
@@ -42,7 +38,7 @@ h1, h2, .drawer .section {
 }
 
 .img-33 {
-    width: 33%;
+    width: 32.9%;
 }
 
 .thumbnail {

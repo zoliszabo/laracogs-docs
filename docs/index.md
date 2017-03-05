@@ -77,6 +77,7 @@ If you think we're nuts please provide a reason, but we're always happy to discu
 * [Bootstrap Skins](kits/bootstrap.md)
 * [Semantic UI Skins](kits/semantic.md)
 * [Notifications](kits/notifications.md)
+* [Features](kits/features.md)
 * [Social Media Logins with Socialite](kits/socialite.md)
 * [Docs Generator](kits/docs.md)
 

@@ -1,7 +1,7 @@
 site_name: 'Laracogs: Prepare your Laravel apps incredibly fast.'
 
 # Repository
-repo_name: 'GitHub'
+repo_name: 'Laracogs'
 repo_url: 'https://github.com/YabHq/Laracogs'
 
 # Copyright
@@ -15,7 +15,7 @@ theme: material
 extra:
   logo: 'img/laracogs.png'
   palette:
-    primary: 'grey'
+    primary: 'blue-grey'
     accent: 'cyan'
   font:
     text: 'Roboto'
