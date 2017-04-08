@@ -8,6 +8,7 @@ php artisan crudmaker:new {name or snake_names}
 {--ui=bootstrap|semantic}
 {--serviceOnly}
 {--withFacade}
+{--withoutViews}
 {--migration}
 {--schema}
 {--relationships}
@@ -92,6 +93,12 @@ The following column types are available:
 
 ```
 --schema="id:increments|first,user_id:integer|unsigned,name:string|nullable|after('id'),age:integer|default(0)"
+```
+
+You can even handle some parameters such as:
+
+```
+--schema="id:increments|first,user_id:integer|unsigned,name:string(45)"
 ```
 
 ## Relationships
