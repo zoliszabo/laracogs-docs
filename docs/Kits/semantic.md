@@ -25,7 +25,7 @@ Then run:
 Then run:
 
 ```
-'cd ../ && gulp'
+'cd ../ && npm run dev'
 ```
 
 Make sure you set the `PagesController@dashboard` to use the following view:

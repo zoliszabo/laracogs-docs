@@ -1,5 +1,7 @@
 # Screenshots
 
+!!! tip "These screenshots assumed that you used the Bootstrap kit `php artisan laracogs:bootstrap`"
+
 ## Starter Kit
 <img class="thumbnail img-responsive" alt="" src="/docs/img/screens/starter/1.jpg" />
 <img class="thumbnail img-responsive" alt="" src="/docs/img/screens/starter/2.jpg" />

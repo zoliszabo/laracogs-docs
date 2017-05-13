@@ -1,37 +1,14 @@
 # Application Starter Kit
 
+!!! warning "Make sure you followed the install instructions!"
+
 Laracogs provides an elegant solution for starting an application by building the most basic views, controllers, models and migrations for your application. No need to use the `php artisan make:auth` because now you can easily start your whole application with this single command:
 
 ```
 php artisan laracogs:starter
 ```
+!!! tip "BUT, before we do that lets get a few things set up."
 
-The command will overwrite any existing files with the starter kit's version of them:
-
-## Setup
-
-### Installation
-
-Start a new Laravel project:
-
-Then run the following to add Laracogs
-```php
-composer require "yab/laracogs"
-```
-
-Add this to the `config/app.php` in the providers array:
-```php
-Yab\Laracogs\LaracogsProvider::class
-```
-
-Time to publish those assets!
-```php
-php artisan vendor:publish --provider="Yab\Laracogs\LaracogsProvider"
-```
-
-You now have Laracogs installed. Looking to try the *Starter Kit* look below.
-
-### Starter
 In order to make use of the <u>starter kit</u> you will need to modify some files. Check out the modifications below:
 
 Add the following to your `app/Http/Kernel.php` in the `$routeMiddleware` array.
@@ -260,7 +237,7 @@ Laracogs starter kit provides the basic unit tests for each of its own parts. Th
 The application dashboard is found by browsing to the /dashboard endpoint.
 The default admin user login credentials are:
 
-* email: admin@admin.com
+* email: admin@example.org
 * password: admin
 
 ### User

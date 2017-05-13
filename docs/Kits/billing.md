@@ -12,9 +12,16 @@ composer require laravel/cashier
 php artisan laracogs:billing
 ```
 
-Add this to the `app/Providers/RouteServiceProvider.php` in the `mapWebRoutes(Router $router)` function:
+You have to modify the `app/Providers/RouteServiceProvider.php` in the `mapWebRoutes(Router $router)` function:
+
+You will see a line like: `->group(base_path('routes/web.php'));`
+
+You need to change it to resemble this:
 ```php
-require base_path('routes/billing.php');
+->group(function () {
+    require base_path('routes/web.php');
+    require base_path('routes/billing.php');
+}
 ```
 
 Add this to the .env:
@@ -45,15 +52,13 @@ Finally run migrate to add the subscriptions and bind them to the user meta:
 php artisan migrate
 ```
 
-You will also want to update your gulpfile.js to include the card.js, and subscription.js
+You will also want to update your webpack mix file to resemble (webpack.mix.js):
 ```js
-elixir(function(mix) {
-    mix.scripts([
-        'app.js',
-        'card.js',
-        'subscription.js'
-    ]);
-});
+.js([
+    'resources/assets/js/app.js',
+    'resources/assets/js/card.js',
+    'resources/assets/js/subscription.js'
+], 'public/js');
 ```
 
 ### After Setup
@@ -103,6 +108,7 @@ These are relative to *billing* only. They provide extra tools for handling rest
 This is the basic config for `config/plans.php`.
 
 ```
+'subscription' => env('SUBSCRIPTION'),
 'subscription_name' => 'main',
 'plans' => [
     'basic' => [

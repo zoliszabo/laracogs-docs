@@ -5,7 +5,7 @@ repo_name: 'Laracogs'
 repo_url: 'https://github.com/YabHq/Laracogs'
 
 # Copyright
-copyright: 'Copyright (c) 2016 Yab Inc'
+copyright: 'Copyright (c) Yab Inc'
 
 # Documentation and theme
 docs_dir: 'docs'

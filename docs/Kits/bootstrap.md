@@ -6,9 +6,11 @@ If you feel like opting in for the Laracogs starter kit. You also have a great b
 php artisan laracogs:bootstrap
 ```
 
-The command will overwrite any existing files with the bootstrap version of them:
+!!! Tip "This will also ensure that your webpack file is prepared to run"
 
 ## What Boostrap Publishes
+
+The command will overwrite any existing files with the bootstrap version of them:
 
 * resources/views/
     * user/

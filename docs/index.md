@@ -38,7 +38,34 @@ php artisan vendor:publish --provider="Yab\FormMaker\FormMakerProvider"
 ```
 
 
-You now have Laracogs installed. Looking to try the *Starter Kit* look below.
+You now have Laracogs installed. Try out the *Starter Kit* below.
+
+----
+
+## Kits!
+
+* [The Starter Kit](kits/starter.md)
+* [API with JWT](kits/api.md)
+* [Billing with Cashier](kits/billing.md)
+* [Bootstrap Skins](kits/bootstrap.md)
+* [Semantic UI Skins](kits/semantic.md)
+* [Notifications](kits/notifications.md)
+* [Features](kits/features.md)
+* [Activity](kits/activity.md)
+* [Social Media Logins with Socialite](kits/socialite.md)
+* [Docs Generator](kits/docs.md)
+
+## Services!
+
+We have a handful of services available to help you get your app written faster! Check them out:
+
+* [CrudMaker](services/crud.md)
+* [CrudMaker: For exitsing table](services/table-crud.md)
+* [FormMaker](services/form_maker.md)
+* [InputMaker](services/input_maker.md)
+* [Crypto](services/crypto.md)
+* [Cerebrum](services/cerebrum.md)
+* [Laratest](services/laratest.md)
 
 ----
 
@@ -66,29 +93,3 @@ The purpose of all of this is to enable developers to handle scaling while maint
 #### We're not perfect
 
 If you think we're nuts please provide a reason, but we're always happy to discuss design pattern ideas and implementations.
-
-----
-
-## Kits!
-
-* [The Starter Kit](kits/starter.md)
-* [API with JWT](kits/api.md)
-* [Billing with Cashier](kits/billing.md)
-* [Bootstrap Skins](kits/bootstrap.md)
-* [Semantic UI Skins](kits/semantic.md)
-* [Notifications](kits/notifications.md)
-* [Features](kits/features.md)
-* [Social Media Logins with Socialite](kits/socialite.md)
-* [Docs Generator](kits/docs.md)
-
-## Services!
-
-We have a handful of services available to help you get your app written faster! Check them out:
-
-* [CrudMaker](services/crud.md)
-* [CrudMaker: For exitsing table](services/table-crud.md)
-* [FormMaker](services/form_maker.md)
-* [InputMaker](services/input_maker.md)
-* [Crypto](services/crypto.md)
-* [Cerebrum](services/cerebrum.md)
-* [Laratest](services/laratest.md)
