@@ -118,6 +118,24 @@ You can create a custom view that the FormMaker will use: This is an example:
 </div>
 ```
 
+## Relationships
+
+FormMaker can handle the following relationships: `hasOne`,`hasMany`,`belongsTo`,`belongsToMany`
+You can set the config as such for something like 'Roles'. You will notice that the class is the actual object, we need this to be able
+to pull in the existing relations.
+
+```
+'roles' => [
+    'type' => 'relationship',
+    'multiple' => true,
+    'class' => auth()->user(),
+    'method' => 'roles',
+    'options' => app('App\Repositories\Roles\Roles')->all(),
+    'label' => 'name',
+    'value' => 'id',
+]
+```
+
 ## fromTable()
 
 ```
