@@ -105,7 +105,7 @@ The Account service is a tool for handling your subscription details, meaning yo
 These are relative to *billing* only. They provide extra tools for handling restrictions in your application based on the plan the user subscribed to. Unless you implment the cashier billing system with the UserMeta structure provided by Laracogs it will not benefit you.
 
 ### Config
-This is the basic config for `config/plans.php`.
+This is the basic config for `config/plans.php`. This is for a single plan, either be subscribed or not.
 
 ```
 'subscription' => env('SUBSCRIPTION'),
@@ -129,6 +129,50 @@ This is the basic config for `config/plans.php`.
     ],
 ]
 ```
+
+#### Multiple Plans
+
+In this config you can define multiple plans which can have different rules per plan. By default the kit uses a single plan. You can define this in the env as mentioned above. But if you want to do multiple plans you can change the following code:
+
+```
+'subscription_name' => 'main',
+'plans' => [
+    'basic' => [
+        'name' => 'Basic Subscription',
+        'stripe_id' => 'basic_subscription',
+        'access' => [
+            'some name'
+        ],
+        'limits' => [
+            'Model\Namespace' => 5,
+            'pivot_table' => 1
+        ],
+        'credits' => [
+            'column' => 'credits_spent',
+            'limit' => 10
+        ],
+        'custom' => [
+            'anything' => 'anything'
+        ],
+    ],
+]
+```
+
+- Line 45 of the `BillingController.php` change `config('plans.subscription')` to: `$payload['plan']`
+- Then add the following code in `resources/views/billing/subscribe.blade.php` above the card form include:
+
+```html
+<div class="form-group">
+    <label class="form-label" for="plan">Plan</label>
+    <select class="form-control" name="plan" id="plan">
+        @foreach (config('plans.plans') as $plan)
+            <option value="{{ $plan['stripe_id'] }}">{{ $plan['name'] }}</option>
+        @endforeach
+    </select>
+</div>
+```
+
+!!! tip "You may also want to add a component to your app to allow users to switch plans. You can use the swap method to achieve this: `auth()->user()->meta->subscription(config('plans.subscription_name'))->swap($request->plan)`"
 
 ### Service Methods
 
