@@ -123,8 +123,9 @@ The general relationships handled by the HTML rendered are:
 hasOne
 hasMany
 belongsTo
-belongsToMany
 ```
+
+!!! warning "The CRUD currently doesn't support `belongsToMany` that is to say it does not currently create a relational table"
 
 ## Examples
 The following components are generated:
